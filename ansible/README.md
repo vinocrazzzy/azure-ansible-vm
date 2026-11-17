@@ -1,0 +1,1 @@
+Azure VM provisioning using Azure DevOps and Ansible

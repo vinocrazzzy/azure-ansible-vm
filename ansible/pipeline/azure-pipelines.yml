@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- checkout: self
+
+- script: |
+    chmod +x scripts/install_dependencies.sh
+    ./scripts/install_dependencies.sh
+  displayName: Install Ansible
+
+- script: |
+    ansible --version
+    ansible-galaxy collection list
+  displayName: Verify Installation

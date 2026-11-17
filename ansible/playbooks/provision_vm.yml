@@ -1,7 +1,14 @@
 ---
-- hosts: localhost
+- name: Create Azure Resource Group
+  hosts: localhost
   connection: local
+
+  vars_files:
+    - ../group_vars/all.yml
+
   tasks:
-    - name: Placeholder task
-      debug:
-        msg: "Ansible setup successful"
+
+    - name: Create Resource Group
+      azure.azcollection.azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
